@@ -23,11 +23,12 @@ end
 
 gilded_rose = GildedRose.new items
 (0...days).each do |day|
+  day = day + 1
   puts "-------- day #{day} --------"
   puts "name, sellIn, quality"
   items.each do |item|
     puts item
   end
   puts ""
-  gilded_rose.update_quality
+  gilded_rose.update_quality(day)
 end
