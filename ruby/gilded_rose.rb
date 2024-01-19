@@ -4,16 +4,16 @@ class GildedRose
     @items = items
   end
 
-  def update_quality(day)
+  def update_quality()
     @items.each do |item|
       case item.name
       when "Aged Brie"
         increase_quality(item)
         decrease_sell_in(item)
       when "Backstage passes to a TAFKAL80ETC concert"
-        increase_quality(item, 3) if day > 0 && day < 6
-        increase_quality(item, 2) if day > 5 && day < 11
-        increase_quality(item) if day > 10
+        increase_quality(item, 3) if item.sell_in > 0 && item.sell_in < 6
+        increase_quality(item, 2) if item.sell_in > 5 && item.sell_in < 11
+        increase_quality(item) if item.sell_in > 10
         item.quality = 0 if item.sell_in < 0
         decrease_sell_in(item)
       when "Sulfuras, Hand of Ragnaros"
